@@ -9,12 +9,6 @@ library(purrr)
 
 llamados <- read.csv("llamados3.csv")[ , -c(1, 2)]  # Tabla con el listado de llamados laborales y sus IDs
 
-example <-  html_session("https://www.uruguayconcursa.gub.uy/Portal/servlet/com.si.recsel.verllamado?20311")
-htmlcode <- read_html(example)
-html_structure(htmlcode)
-
-texto <-  htmlcode %>% html_node("#TABLE1")  %>% html_text()
-
 #hacer lista de rotulos de la tabla, guardar todo el texto que se encuentre entre un rotulo y otro (descartando la info que ya tengo o no me interesa)
 
 rotulos <- c("Período de postulación:\t", "Nombre del puesto:\t", "Tipo de Tarea:\t", "Estado:\t", "Tipo de Vínculo:\t", "Tiempo del Contrato:\t", "Retribución:\t", "Carga horaria:\t", "Lugar de desempeño:\t", "Tiempo de contratación:\t",
