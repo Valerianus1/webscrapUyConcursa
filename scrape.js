@@ -1,5 +1,7 @@
-// Hace un loop para acceder a todos los llamados publicados página por página usando PhantomJS
+// Hace un loop para acceder a la tabla de todos los llamados publicados, página por página, usando PhantomJS
 // y genera archivos .txt con el código html con las tablas de llamados laborales
+// El portal tardaba mas de un minuto en cargar cada pagina, asi que use un timer de dos minutos para esperar
+// que cambiara de pagina
 
 var fs = require('fs');
 var webpage = require('webpage');
@@ -10,7 +12,6 @@ page.onConsoleMessage = function(msg) {
 };
 
 function readNwrite(j) {
-	console.log("espero2mins");
 	var coso = page.evaluate(function() {
   		return document.querySelector("#Grid1ContainerTbl").innerHTML;
 	});
